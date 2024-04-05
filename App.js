@@ -1,10 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
+import MyCalendar from './src/components/MyCallendar/index';
+import { MainTheme } from './src/theme/MainTheme';
+import Header from './src/components/Header';
 
 export default function App() {
+  const userName = 'Thiago';
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Header />
+      <MyCalendar />
       <StatusBar style="auto" />
     </View>
   );
@@ -13,8 +18,9 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: MainTheme.colors.background,
     alignItems: 'center',
     justifyContent: 'center',
+    fontFamily: MainTheme.fonts.primary,
   },
 });
