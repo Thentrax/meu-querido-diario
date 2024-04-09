@@ -1,15 +1,34 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import { MainTheme } from '../../theme/MainTheme';
 
 export const styles = StyleSheet.create({
   container: {
-    display: 'flex',
-    backgroundColor: MainTheme.colors.primary,
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  calendar: {
+    width: Dimensions.get('window').width * 0.9,
     borderColor: MainTheme.colors.primary,
     borderWidth: 1,
-    borderRadius: 4,
+    borderBottomEndRadius: 8,
+    borderBottomStartRadius: 8,
+  },
+  calendarHeader: {
+    width: Dimensions.get('window').width * 0.9,
+    backgroundColor: MainTheme.colors.primary,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 8,
+    borderTopEndRadius: 8,
+    borderTopStartRadius: 8,
+  },
+  calendarHeaderText: {
+    color: MainTheme.colors.white,
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });
 

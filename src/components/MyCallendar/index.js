@@ -31,18 +31,22 @@ const MyCalendar = () => {
   const [selectedDate, setSelectedDate] = useState(todayString);
     return ( 
         <View style={styles.container}> 
-            <Calendar 
-                markedDates={{ 
-                  [selectedDate]: { selected: true }
-                }}
-                onDayPress={(day) => {
-                  if (day.dateString === selectedDate) {
-                    alert('You have already selected this date!');
-                    return;
-                  }
-                  setSelectedDate(day.dateString);
-                }}
-                theme={calendarTheme} 
+          <View style={styles.calendarHeader}>
+              <Text style={styles.calendarHeaderText}>Seu calendário de Experiências</Text>
+          </View>
+            <Calendar
+              style={styles.calendar}
+              markedDates={{ 
+                [selectedDate]: { selected: true }
+              }}
+              onDayPress={(day) => {
+                if (day.dateString === selectedDate) {
+                  alert('You have already selected this date!');
+                  return;
+                }
+                setSelectedDate(day.dateString);
+              }}
+              theme={calendarTheme} 
             /> 
         </View> 
     ); 
