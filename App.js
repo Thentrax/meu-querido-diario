@@ -1,16 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, SafeAreaView } from 'react-native';
-import MyCalendar from './src/components/MyCallendar/index';
 import { MainTheme } from './src/theme/MainTheme';
-import Header from './src/components/Header';
-import Footer from './src/components/Footer';
+import Router from './src/pages/router';
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <Header />
-      <MyCalendar />
-      <Footer />
+      <Router />
       <StatusBar style="auto" />
     </SafeAreaView>
   );
