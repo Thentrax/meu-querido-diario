@@ -4,9 +4,9 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import MyCalendar from '../../components/MyCallendar';
 
-const MainPage = (
+const MainPage = ({
   setCurrentPage,
-) => {
+}) => {
   return ( 
     <View style={{ flex: 1 }}>
       <Header />

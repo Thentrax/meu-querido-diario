@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import { MainTheme } from '../../theme/MainTheme';
 
 export const styles = StyleSheet.create({
@@ -8,9 +8,11 @@ export const styles = StyleSheet.create({
     gap: 8,
     backgroundColor: MainTheme.colors.primary,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'start',
     borderColor: MainTheme.colors.primary,
     borderWidth: 1,
+    paddingVertical: Dimensions.get('window').width * 0.7,
+
   },
   mainText: {
     width: '100%',
@@ -24,6 +26,13 @@ export const styles = StyleSheet.create({
     color: MainTheme.colors.white,
     fontSize: 16,
     fontWeight: 'bold',
+    paddingHorizontal: 16,
+  },
+  textSecondary: {
+    width: '100%',
+    color: MainTheme.colors.secondary,
+    fontSize: 14,
+    fontWeight: 'regular',
     paddingHorizontal: 16,
   }
 });

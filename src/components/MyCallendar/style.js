@@ -33,8 +33,8 @@ export const styles = StyleSheet.create({
 });
 
 export const calendarTheme = {
-  backgroundColor: MainTheme.colors.background, 
-  calendarBackground: MainTheme.colors.background, 
+  backgroundColor: MainTheme.colors.tertiary, 
+  calendarBackground: MainTheme.colors.tertiary, 
   textSectionTitleColor: MainTheme.colors.textPrimay, 
   selectedDayBackgroundColor: MainTheme.colors.primary, 
   selectedDayTextPtextPrimayColor: MainTheme.colors.white, 
