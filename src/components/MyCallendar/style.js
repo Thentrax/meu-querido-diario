@@ -33,13 +33,13 @@ export const styles = StyleSheet.create({
 });
 
 export const calendarTheme = {
-  backgroundColor: MainTheme.colors.tertiary, 
-  calendarBackground: MainTheme.colors.tertiary, 
+  backgroundColor: MainTheme.colors.background, 
+  calendarBackground: MainTheme.colors.background, 
   textSectionTitleColor: MainTheme.colors.textPrimay, 
   selectedDayBackgroundColor: MainTheme.colors.primary, 
   selectedDayTextPtextPrimayColor: MainTheme.colors.white, 
-  todayTextColor: MainTheme.colors.primary, 
-  dayTextColor: MainTheme.colors.textSecondary, 
+  todayTextColor: MainTheme.colors.secondary, 
+  dayTextColor: MainTheme.colors.primary, 
   textDisabledColor: MainTheme.colors.disabled, 
   dotColor: MainTheme.colors.primary, 
   selectedDotColor: MainTheme.colors.white, 
@@ -49,7 +49,7 @@ export const calendarTheme = {
   textDayFontFamily: MainTheme.fonts.primary, 
   textMonthFontFamily: MainTheme.fonts.primary, 
   textDayHeaderFontFamily: MainTheme.fonts.primary, 
-  textDayFontSize: 14, 
+  textDayFontSize: 16, 
   textMonthFontSize: 16, 
-  textDayHeaderFontSize: 14 
+  textDayHeaderFontSize: 14,
 };
