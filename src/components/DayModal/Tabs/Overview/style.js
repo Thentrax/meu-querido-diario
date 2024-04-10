@@ -6,7 +6,6 @@ export const styles = StyleSheet.create({
     gap: 8,
     backgroundColor: MainTheme.colors.background,
     borderColor: MainTheme.colors.primary,
-    position: 'relative',
   },
   header: {
     width: '100%',

@@ -4,7 +4,9 @@ import { styles } from './style';
 import { MainTheme } from '../../theme/MainTheme';
 import { Pencil, Trash } from 'phosphor-react-native';
 
-const MemoryCard = () => {
+const MemoryCard = ({
+  title,
+}) => {
 
   const onEdit = () => {
     alert('editando');
@@ -20,7 +22,7 @@ const MemoryCard = () => {
         source={require('../../../assets/favicon.png')}
         style={styles.icon}
       />
-      <Text style={styles.text}>MemoryCard</Text>
+      <Text style={styles.text}>{title}</Text>
       <View style={styles.actions}>
       <TouchableOpacity onPress={onEdit}>
         <View>
