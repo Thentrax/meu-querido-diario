@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text } from 'react-native'; 
 import { Calendar, LocaleConfig } from 'react-native-calendars'; 
 import { styles, calendarTheme } from './style';
+import DayModal from '../DayModal';
 
 LocaleConfig.locales['br'] = {
   monthNames: [
@@ -29,6 +30,12 @@ const MyCalendar = () => {
   const today = new Date();
   const todayString = today.toISOString().split('T')[0];
   const [selectedDate, setSelectedDate] = useState(todayString);
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const handleOpenModal = () => {
+    setModalVisible(true);
+  };
+
     return ( 
         <View style={styles.container}> 
           <View style={styles.calendarHeader}>
@@ -41,13 +48,18 @@ const MyCalendar = () => {
               }}
               onDayPress={(day) => {
                 if (day.dateString === selectedDate) {
-                  alert('You have already selected this date!');
+                  handleOpenModal();
                   return;
                 }
                 setSelectedDate(day.dateString);
               }}
               theme={calendarTheme} 
-            /> 
+            />
+            <DayModal
+              isVisible={modalVisible}
+              setIsVisible={setModalVisible}
+              selectedDate={selectedDate}
+            />
         </View> 
     ); 
 }; 

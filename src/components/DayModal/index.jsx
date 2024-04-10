@@ -1,29 +1,49 @@
 import React from 'react'; 
-import { View, Text, Modal } from 'react-native'; 
+import { View, Button, Modal, Text, TouchableOpacity } from 'react-native'; 
+import { styles } from './style';
+import { X } from 'phosphor-react-native';
+import Overview from './Tabs/Overview';
 
-const Footer = () => {
-  const [modalVisible, setModalVisible] = useState(false);
+const DayModal = ({
+  isVisible,
+  setIsVisible,
+  selectedDate,
+}) => {
+
+  const formatDate = (date) => {
+    const dateObj = new Date(date);
+    return dateObj.toLocaleDateString('pt-BR');
+  };
+
+  let date = formatDate(selectedDate);
+
+  const onClose = () => {
+    setIsVisible(!isVisible);
+  };
+
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Button title="Mostrar Modal" onPress={() => setModalVisible(true)} />
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          setModalVisible(!modalVisible);
-        }}
-      >
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
-          <View style={{ backgroundColor: 'white', padding: 20 }}>
-            <Text>Conteúdo da modal aqui</Text>
-            <Button title="Fechar Modal" onPress={() => setModalVisible(!modalVisible)} />
+    <Modal
+      animationType="slide"
+      transparent={true}
+      visible={isVisible}
+      onRequestClose={onClose}
+    >
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+        <View style={styles.container}>
+          <View style={styles.header}>
+            <Text style={styles.title}>Memórias do dia {date}</Text>
+            <TouchableOpacity onPress={onClose}>
+              <View>
+                <X size={18} color="#fff"/>
+              </View>
+            </TouchableOpacity>
           </View>
+          <Overview />
         </View>
-      </Modal>
-    </View>
+      </View>
+    </Modal>
   );
 };
 
-export default Footer;
+export default DayModal;

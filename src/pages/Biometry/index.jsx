@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react'; 
-import { View, Text } from 'react-native'; 
+import { View, Text, Button } from 'react-native'; 
 import * as LocalAuthentication from 'expo-local-authentication';
 import { styles } from './style';
+import { MainTheme } from '../../theme/MainTheme';
 
 const Biometry = ({
   setCurrentPage,
@@ -37,7 +38,8 @@ const Biometry = ({
   return ( 
     <View style={styles.container}>
       <Text style={styles.mainText}>{userName}, é você mesmo?</Text>
-      <Text style={styles.text}>{biometricStatus}</Text>
+      <Text style={styles.text}>{biometricStatus}{'\n'}</Text>
+      <Button color={MainTheme.colors.secondary} title="Entrar" onPress={checkBiometric} />
     </View> 
 );
 };

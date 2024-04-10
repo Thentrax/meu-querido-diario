@@ -14,8 +14,8 @@ const Header = () => {
       </View>
       <View style={styles.callView}>
         <Text style={styles.greetings}>Olá {userName}!</Text>
-        <Text style={styles.call}>Gostaria de compartilhar uma nova experiência?</Text>
-        <Text style={styles.text}>Selecione uma data para verificar suas experiências!</Text>
+        <Text style={styles.call}>Gostaria de compartilhar uma nova memórias?</Text>
+        <Text style={styles.text}>Selecione uma data para verificar suas memórias!</Text>
       </View>
 
     </View> 
