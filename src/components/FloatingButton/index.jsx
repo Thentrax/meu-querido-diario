@@ -8,7 +8,6 @@ const FloatingButton = ({
 }) => {
 
   const onCreate = () => {
-    console.log('create');
     action();
   };
 
