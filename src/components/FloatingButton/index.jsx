@@ -1,14 +1,23 @@
-import React from 'react'; 
-import { View } from 'react-native'; 
+import React, { useEffect, useState } from 'react'; 
+import { TouchableOpacity, View } from 'react-native'; 
 import { styles } from './style';
 
 const FloatingButton = ({
   content,
+  action,
 }) => {
+
+  const onCreate = () => {
+    console.log('create');
+    action();
+  };
+
 
   return (
     <View style={styles.container}>
-      {content}
+      <TouchableOpacity onPress={onCreate}>
+              {content}
+      </TouchableOpacity>
     </View> 
 );
 };

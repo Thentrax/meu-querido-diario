@@ -3,12 +3,15 @@ import { View, Button, Modal, Text, TouchableOpacity } from 'react-native';
 import { styles } from './style';
 import { X } from 'phosphor-react-native';
 import Overview from './Tabs/Overview';
+import MemoryForm from './Tabs/Form';
 
 const DayModal = ({
   isVisible,
   setIsVisible,
   selectedDate,
 }) => {
+
+  const [currentTab, setCurrentTab] = React.useState(0);
 
   const formatDate = (date) => {
     const dateObj = new Date(date);
@@ -21,6 +24,9 @@ const DayModal = ({
     setIsVisible(!isVisible);
   };
 
+  const onCreate = () => {
+    setCurrentTab(1);
+  };
 
   return (
     <Modal
@@ -39,7 +45,8 @@ const DayModal = ({
               </View>
             </TouchableOpacity>
           </View>
-          <Overview />
+          {currentTab === 0 && <Overview onCreate={onCreate}/>}
+          {currentTab === 1 && <MemoryForm />}
         </View>
       </View>
     </Modal>

@@ -21,7 +21,6 @@ const MemoryCard = ({
       <View style={styles.container}>
         <Image
           source={require('../../../assets/favicon.png')}
-          style={styles.icon}
         />
         <Text style={styles.text}>{title}</Text>
         <View style={styles.actions}>

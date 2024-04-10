@@ -20,9 +20,6 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'regular',
   },
-  icon: {
-    color: MainTheme.colors.primary,
-  },
   actions: {
     display: 'flex',
     flexDirection: 'row',
