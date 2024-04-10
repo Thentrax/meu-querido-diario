@@ -3,6 +3,11 @@ import { MainTheme } from '../../../../theme/MainTheme';
 
 export const styles = StyleSheet.create({
   container: {
+    position: 'relative',
+    height: '90%',
+  },
+  scroll: {
+    display: 'flex',
     gap: 8,
     backgroundColor: MainTheme.colors.background,
     borderColor: MainTheme.colors.primary,

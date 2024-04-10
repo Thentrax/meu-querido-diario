@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
   container: {
     width: Dimensions.get('window').width * 0.9,
     height: Dimensions.get('window').height * 0.7,
-    gap: 8,
+    display: 'flex',
     backgroundColor: MainTheme.colors.background,
     borderColor: MainTheme.colors.primary,
     borderWidth: 4,
@@ -13,6 +13,7 @@ export const styles = StyleSheet.create({
   },
   header: {
     width: '100%',
+    height: '10%',
     padding: 16,
     backgroundColor: MainTheme.colors.primary,
     display: 'flex',

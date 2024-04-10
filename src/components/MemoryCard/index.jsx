@@ -17,25 +17,23 @@ const MemoryCard = ({
   };
 
   return (
-    <View style={styles.container}>
-      <Image
-        source={require('../../../assets/favicon.png')}
-        style={styles.icon}
-      />
-      <Text style={styles.text}>{title}</Text>
-      <View style={styles.actions}>
-      <TouchableOpacity onPress={onEdit}>
-        <View>
-          <Pencil size={24} color={MainTheme.colors.secondary} weight="fill" />
+    <TouchableOpacity onPress={onEdit}>
+      <View style={styles.container}>
+        <Image
+          source={require('../../../assets/favicon.png')}
+          style={styles.icon}
+        />
+        <Text style={styles.text}>{title}</Text>
+        <View style={styles.actions}>
+        <TouchableOpacity onPress={onDelete}>
+          <View>
+            <Trash size={24} color={MainTheme.colors.secondary} weight="fill" />
+          </View>
+        </TouchableOpacity>
         </View>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={onDelete}>
-        <View>
-          <Trash size={24} color={MainTheme.colors.secondary} weight="fill" />
-        </View>
-      </TouchableOpacity>
-      </View>
-    </View> 
+      </View> 
+    </TouchableOpacity>
+
 );
 };
 

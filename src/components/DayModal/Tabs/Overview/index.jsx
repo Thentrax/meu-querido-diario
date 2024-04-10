@@ -12,16 +12,16 @@ const Overview = () => {
 
   return (
     <View style={styles.container}>
-    <ScrollView style={styles.container}>
-      <MemoryCard
-        title={title}
-      />
-    </ScrollView> 
-      <FloatingButton
-        content={
-          <Plus size={24} color={MainTheme.colors.white} />
-        }
-      />
+      <ScrollView style={styles.scroll}>
+        <MemoryCard
+          title={title}
+        />
+      </ScrollView> 
+        <FloatingButton
+          content={
+            <Plus size={24} color={MainTheme.colors.white} />
+          }
+        />
     </View>
 );
 };

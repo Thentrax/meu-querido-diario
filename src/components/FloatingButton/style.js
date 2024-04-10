@@ -4,8 +4,8 @@ import { MainTheme } from '../../theme/MainTheme';
 export const styles = StyleSheet.create({
   container: {
     position: 'absolute',
-    bottom: 0,
-    right: 8,
+    bottom: 16,
+    right: 16,
     width: 56,
     height: 56,
     borderRadius: 28,
