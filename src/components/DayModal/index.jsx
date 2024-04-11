@@ -1,9 +1,10 @@
-import React from 'react'; 
+import React, { useEffect } from 'react'; 
 import { View, Button, Modal, Text, TouchableOpacity } from 'react-native'; 
 import { styles } from './style';
 import { ArrowArcLeft, X } from 'phosphor-react-native';
 import Overview from './Tabs/Overview';
 import MemoryForm from './Tabs/Form';
+import MemoryTab from './Tabs/Memory';
 
 const DayModal = ({
   isVisible,
@@ -12,6 +13,7 @@ const DayModal = ({
 }) => {
 
   const [currentTab, setCurrentTab] = React.useState(0);
+  const [selectedMemory, setSelectedMemory] = React.useState({});
 
   const formatDate = (date) => {
     const dateObj = new Date(date);
@@ -31,6 +33,14 @@ const DayModal = ({
   const onOverview = () => {
     setCurrentTab(0);
   };
+
+  const onDetails = () => {
+    setCurrentTab(2);
+  };
+
+  useEffect(() => {
+    setCurrentTab(0);
+  }, [selectedDate, isVisible]);
 
   return (
     <Modal
@@ -52,8 +62,9 @@ const DayModal = ({
                 <X size={18} color="#fff"/>
             </TouchableOpacity>
           </View>
-          {currentTab === 0 && <Overview onCreate={onCreate}/>}
-          {currentTab === 1 && <MemoryForm onOverview={onOverview}/>}
+          {currentTab === 0 && <Overview onCreate={onCreate} onDetails={onDetails} setSelectedMemory={setSelectedMemory}/>}
+          {currentTab === 1 && <MemoryForm currentTab={currentTab} onOverview={onOverview}/>}
+          {currentTab === 2 && <MemoryTab selectedMemory={selectedMemory}/>}
         </View>
       </View>
     </Modal>

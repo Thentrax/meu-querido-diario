@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'; 
+import React from 'react'; 
 import { ScrollView, View } from 'react-native'; 
 import { Plus } from 'phosphor-react-native';
 import { MainTheme } from '../../../../theme/MainTheme';
@@ -8,15 +8,16 @@ import { styles } from './style';
 
 const Overview = ({
   onCreate,
+  onDetails,
+  setSelectedMemory,
 }) => {
-
-  const title = 'Criando o aplicativo';
 
   return (
     <View style={styles.container}>
       <ScrollView style={styles.scroll}>
         <MemoryCard
-          title={title}
+          onDetails={onDetails}
+          setSelectedMemory={setSelectedMemory}
         />
       </ScrollView> 
         <FloatingButton

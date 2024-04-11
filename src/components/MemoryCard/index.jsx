@@ -1,15 +1,24 @@
-import React from 'react'; 
+import React, { useEffect } from 'react'; 
 import { View, Text, Image, TouchableOpacity } from 'react-native'; 
 import { styles } from './style';
 import { MainTheme } from '../../theme/MainTheme';
 import { Pencil, Trash } from 'phosphor-react-native';
 
 const MemoryCard = ({
-  title,
+  onDetails,
+  setSelectedMemory,
 }) => {
 
-  const onEdit = () => {
-    alert('editando');
+  const memory = {
+    title: 'Criando o aplicativo',
+    description: 'Descrição da memória',
+    image: require('../../../assets/favicon.png'),
+    location: 'Localização da memória',
+  }
+
+  const onOpenMemory = () => {
+    setSelectedMemory(memory);
+    onDetails();
   };
 
   const onDelete = () => {
@@ -17,12 +26,12 @@ const MemoryCard = ({
   };
 
   return (
-    <TouchableOpacity onPress={onEdit}>
+    <TouchableOpacity onPress={onOpenMemory}>
       <View style={styles.container}>
         <Image
-          source={require('../../../assets/favicon.png')}
+          source={memory.image}
         />
-        <Text style={styles.text}>{title}</Text>
+        <Text style={styles.text}>{memory.title}</Text>
         <View style={styles.actions}>
         <TouchableOpacity onPress={onDelete}>
           <View>

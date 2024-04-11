@@ -6,6 +6,7 @@ import CameraScreen from '../../../Camera';
 import MapScreen from '../../../Map';
 
 const MemoryForm = ({
+  currentTab,
   onOverview,
 }) => {
   const [title, setTitle] = useState('');
@@ -27,6 +28,17 @@ const MemoryForm = ({
     console.log('Dados do formulário:', { title, description, image, location });
     onOverview();
   };
+
+  const clearForm = () => {
+    setTitle('');
+    setDescription('');
+    setImage('');
+    setLocation('');
+  };
+
+  useEffect(() => {
+    clearForm();
+  }, [currentTab]);
 
   return (
     <View style={styles.container}>
