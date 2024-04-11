@@ -4,7 +4,7 @@ import { MainTheme } from '../../theme/MainTheme';
 export const styles = StyleSheet.create({
   container: {
     width: Dimensions.get('window').width * 0.9,
-    height: Dimensions.get('window').height * 0.7,
+    height: Dimensions.get('window').height * 0.8,
     display: 'flex',
     backgroundColor: MainTheme.colors.background,
     borderColor: MainTheme.colors.primary,

@@ -1,7 +1,7 @@
 import React from 'react'; 
 import { View, Button, Modal, Text, TouchableOpacity } from 'react-native'; 
 import { styles } from './style';
-import { X } from 'phosphor-react-native';
+import { ArrowArcLeft, X } from 'phosphor-react-native';
 import Overview from './Tabs/Overview';
 import MemoryForm from './Tabs/Form';
 
@@ -28,6 +28,10 @@ const DayModal = ({
     setCurrentTab(1);
   };
 
+  const onOverview = () => {
+    setCurrentTab(0);
+  };
+
   return (
     <Modal
       animationType="slide"
@@ -38,15 +42,18 @@ const DayModal = ({
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
         <View style={styles.container}>
           <View style={styles.header}>
+            {currentTab !== 0 && (
+              <TouchableOpacity onPress={onOverview}>
+                <ArrowArcLeft size={18} color="#fff"/>
+              </TouchableOpacity>
+            )}
             <Text style={styles.title}>Memórias do dia {date}</Text>
             <TouchableOpacity onPress={onClose}>
-              <View>
                 <X size={18} color="#fff"/>
-              </View>
             </TouchableOpacity>
           </View>
           {currentTab === 0 && <Overview onCreate={onCreate}/>}
-          {currentTab === 1 && <MemoryForm />}
+          {currentTab === 1 && <MemoryForm onOverview={onOverview}/>}
         </View>
       </View>
     </Modal>
