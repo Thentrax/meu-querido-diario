@@ -63,7 +63,7 @@ const DayModal = ({
             </TouchableOpacity>
           </View>
           {currentTab === 0 && <Overview onCreate={onCreate} onDetails={onDetails} setSelectedMemory={setSelectedMemory}/>}
-          {currentTab === 1 && <MemoryForm currentTab={currentTab} onOverview={onOverview}/>}
+          {currentTab === 1 && <MemoryForm currentTab={currentTab} onOverview={onOverview} date={date} />}
           {currentTab === 2 && <MemoryTab selectedMemory={selectedMemory}/>}
         </View>
       </View>

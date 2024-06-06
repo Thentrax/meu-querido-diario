@@ -4,10 +4,12 @@ import { styles } from './style';
 import { MainTheme } from '../../../../theme/MainTheme';
 import CameraScreen from '../../../Camera';
 import MapScreen from '../../../Map';
+import ApiInstance from '../../../../firebase/api';
 
 const MemoryForm = ({
   currentTab,
   onOverview,
+  date,
 }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -24,8 +26,12 @@ const MemoryForm = ({
     setOpenMap(true);
   };
 
-  const handleSubmit = () => {
-    console.log('Dados do formulário:', { title, description, image, location });
+  const handleSubmit = async () => {
+    const newMemory = {
+      title, description, image, location, date
+    }
+    const response = await ApiInstance.postMemory(newMemory);
+    console.log('response', response);
     onOverview();
   };
 

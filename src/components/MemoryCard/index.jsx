@@ -16,7 +16,7 @@ const MemoryCard = ({
     location: 'Localização da memória',
   }
 
-  const onOpenMemory = () => {
+  const onOpenMemory = async () => {
     setSelectedMemory(memory);
     onDetails();
   };
