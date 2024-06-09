@@ -16,11 +16,9 @@ const MainPage = ({
 
   useEffect(() => {
     if (memories){
-      console.log('memórias adicionadas!:', memories)
+      console.log('memórias coletadas:', memories);
     }
   }, [memories])
-  
-  
 
   const fetchMemories = async () => {
     try {
@@ -34,7 +32,7 @@ const MainPage = ({
   return ( 
     <View style={{ flex: 1 }}>
       <Header />
-      <MyCalendar />
+      <MyCalendar memories={memories}/>
       <Footer />
     </View> 
 );

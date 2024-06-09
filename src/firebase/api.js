@@ -1,17 +1,17 @@
-import { collection, addDoc, getDocs } from "firebase/firestore"; 
+import { collection, addDoc, getDocs, query, where } from "firebase/firestore"; 
 import { db } from './config';
 
 class Api {
   postMemory = async (memory) => {
     try {
-      const docRef = await addDoc(collection(db, "memories"), {
+      await addDoc(collection(db, "memories"), {
         title: memory.title,
         date: memory.date,
         description: memory.description,
         image: memory.image,
         location: memory.location,
+        enabled: true,
       });
-      console.log("Memória Criada: ", docRef.id);
     } catch (e) {
       console.error("Erro ao criar memória: ", e);
     }
@@ -19,15 +19,26 @@ class Api {
 
   getMemories = async () => {
     try {
-      const memories = await getDocs(collection(db, "memories"));
+      const reqiestQuery = query(
+        collection(db, "memories"), where("enabled", "==", true)
+      );
+
+      const fetchedMemories = await getDocs(reqiestQuery);
+      const memories = [];
+      
+      fetchedMemories.forEach((doc) => {
+        memory = {
+          "id": doc.id,
+          "data": doc.data(),
+        };
+        memories.push(memory);
+      });
       return memories;
     } catch (e) {
-      console.log("Erro ao consultar memórias");
+      console.error("Erro ao consultar memórias", e);
     }
 
   };
-
-
 
 };
 

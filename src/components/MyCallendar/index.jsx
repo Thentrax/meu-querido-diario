@@ -26,7 +26,7 @@ LocaleConfig.locales['br'] = {
 };
 LocaleConfig.defaultLocale = 'br';
 
-const MyCalendar = () => { 
+const MyCalendar = ({memories}) => { 
   const today = new Date();
   const todayString = today.toISOString().split('T')[0];
   const [selectedDate, setSelectedDate] = useState(todayString);
@@ -39,7 +39,7 @@ const MyCalendar = () => {
     return ( 
         <View style={styles.container}> 
           <View style={styles.calendarHeader}>
-              <Text style={styles.calendarHeaderText}>Seu calendário de Experiências</Text>
+              <Text style={styles.calendarHeaderText}>Seu calendário de Memórias</Text>
           </View>
             <Calendar
               style={styles.calendar}

@@ -28,10 +28,13 @@ const MemoryForm = ({
 
   const handleSubmit = async () => {
     const newMemory = {
-      title, description, image, location, date
+      title,
+      description,
+      image,
+      location,
+      date,
     }
-    const response = await ApiInstance.postMemory(newMemory);
-    console.log('response', response);
+    await ApiInstance.postMemory(newMemory);
     onOverview();
   };
 
