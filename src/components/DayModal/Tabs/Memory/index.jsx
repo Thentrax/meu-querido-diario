@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'; 
-import { View, Text, ScrollView } from 'react-native'; 
+import { View, Text, ScrollView, Image } from 'react-native'; 
 import { styles } from './style';
 import MapScreen from '../../../Map';
 
@@ -16,10 +16,9 @@ const MemoryTab = ({
   return (
     <View style={styles.container}>
       <ScrollView>
-        <Text style={styles.text}>{memory.title}</Text>
-        {/* <Image source={memory.image} style={styles.image} /> */}
-        <Text style={styles.text2}>{memory.description}</Text>
-        <Text style={styles.text2}>{memory.location}</Text>
+        <Text style={styles.text}>{memory.data.title}</Text>
+        <Image source={memory.data.image} style={styles.image} />
+        <Text style={styles.text2}>{memory.data.description}</Text>
       </ScrollView> 
     </View>
 );

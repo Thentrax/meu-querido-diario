@@ -1,5 +1,6 @@
 import { collection, addDoc, getDocs, query, where } from "firebase/firestore"; 
-import { db } from './config';
+import { ref } from "firebase/storage";
+import { db, storage } from './config';
 
 class Api {
   postMemory = async (memory) => {

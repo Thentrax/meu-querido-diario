@@ -2,47 +2,40 @@ import React, { useEffect } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native'; 
 import { styles } from './style';
 import { MainTheme } from '../../theme/MainTheme';
-import { Pencil, Trash } from 'phosphor-react-native';
+import { Trash } from 'phosphor-react-native';
 
 const MemoryCard = ({
   onDetails,
   setSelectedMemory,
+  memories,
 }) => {
 
-  const memory = {
-    title: 'Criando o aplicativo',
-    description: 'Descrição da memória',
-    image: require('../../../assets/favicon.png'),
-    location: 'Localização da memória',
-  }
-
-  const onOpenMemory = async () => {
+  const onOpenMemory = (memory) => {
     setSelectedMemory(memory);
     onDetails();
   };
 
-  const onDelete = () => {
-      alert('deletando');
+  const onDelete = (id) => {
+      console.log('deletando', id);
   };
 
   return (
-    <TouchableOpacity onPress={onOpenMemory}>
-      <View style={styles.container}>
-        <Image
-          source={memory.image}
-        />
-        <Text style={styles.text}>{memory.title}</Text>
-        <View style={styles.actions}>
-        <TouchableOpacity onPress={onDelete}>
-          <View>
-            <Trash size={24} color={MainTheme.colors.secondary} weight="fill" />
+    memories && memories.map((memory) => (
+        <TouchableOpacity onPress={() => onOpenMemory(memory)} key={memory.id}>
+          <View style={styles.container}>
+            <Image source={memory.data.image} />
+            <Text style={styles.text}>{memory.data.title}</Text>
+            <View style={styles.actions}>
+              <TouchableOpacity onPress={() => onDelete(memory.id)}>
+                <View>
+                  <Trash size={24} color={MainTheme.colors.secondary} weight="fill" />
+                </View>
+              </TouchableOpacity>
+            </View>
           </View>
         </TouchableOpacity>
-        </View>
-      </View> 
-    </TouchableOpacity>
-
-);
+      ))
+  );
 };
 
 export default MemoryCard;

@@ -10,6 +10,7 @@ const DayModal = ({
   isVisible,
   setIsVisible,
   selectedDate,
+  memories,
 }) => {
 
   const [currentTab, setCurrentTab] = React.useState(0);
@@ -62,7 +63,7 @@ const DayModal = ({
                 <X size={18} color="#fff"/>
             </TouchableOpacity>
           </View>
-          {currentTab === 0 && <Overview onCreate={onCreate} onDetails={onDetails} setSelectedMemory={setSelectedMemory}/>}
+          {currentTab === 0 && <Overview onCreate={onCreate} onDetails={onDetails} setSelectedMemory={setSelectedMemory} memories={memories}/>}
           {currentTab === 1 && <MemoryForm currentTab={currentTab} onOverview={onOverview} date={date} />}
           {currentTab === 2 && <MemoryTab selectedMemory={selectedMemory}/>}
         </View>

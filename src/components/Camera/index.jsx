@@ -32,7 +32,7 @@ const CameraScreen = ({
     if (ref) {
       const data = await ref.current.takePictureAsync();
       setCaptured(data.uri)
-      setPicture(data.uri)
+      setPicture(data)
       await MediaLibrary.createAssetAsync(data.uri)
       setIsOpen(false)
     }

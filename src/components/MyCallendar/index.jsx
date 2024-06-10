@@ -1,6 +1,6 @@
-import React, { useState } from 'react'; 
+import React, { useState, useEffect } from 'react'; 
 import { View, Text } from 'react-native'; 
-import { Calendar, LocaleConfig } from 'react-native-calendars'; 
+import { Calendar, LocaleConfig, mark } from 'react-native-calendars'; 
 import { styles, calendarTheme } from './style';
 import DayModal from '../DayModal';
 
@@ -26,14 +26,32 @@ LocaleConfig.locales['br'] = {
 };
 LocaleConfig.defaultLocale = 'br';
 
-const MyCalendar = ({memories}) => { 
+const MyCalendar = ({memories, datesWithMemories}) => { 
   const today = new Date();
   const todayString = today.toISOString().split('T')[0];
   const [selectedDate, setSelectedDate] = useState(todayString);
   const [modalVisible, setModalVisible] = useState(false);
+  const [selectedDateMemories, setSelectedDateMemories] = useState();
+  
+  useEffect(() => {
+    if (selectedDate && memories){
+      getMemoriesWithDate();
+    }
+  }, [selectedDate]);
 
   const handleOpenModal = () => {
     setModalVisible(true);
+  };
+
+  const formatDate = (memoryDate) => {
+    const day = memoryDate.split('/');
+    const formatedDate = `${day[2]}-${day[1]}-${day[0]}`;
+    return formatedDate;
+  }
+
+  const getMemoriesWithDate = () => {
+    const filteredMemories = memories.filter((memory) => formatDate(memory.data.date) === selectedDate)
+    setSelectedDateMemories(filteredMemories);
   };
 
     return ( 
@@ -43,8 +61,8 @@ const MyCalendar = ({memories}) => {
           </View>
             <Calendar
               style={styles.calendar}
-              markedDates={{ 
-                [selectedDate]: { selected: true }
+              markedDates={{
+                [selectedDate]: {selected: true},
               }}
               onDayPress={(day) => {
                 if (day.dateString === selectedDate) {
@@ -59,6 +77,7 @@ const MyCalendar = ({memories}) => {
               isVisible={modalVisible}
               setIsVisible={setModalVisible}
               selectedDate={selectedDate}
+              memories={selectedDateMemories}
             />
         </View> 
     ); 

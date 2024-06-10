@@ -10,6 +10,7 @@ const Overview = ({
   onCreate,
   onDetails,
   setSelectedMemory,
+  memories,
 }) => {
 
   return (
@@ -18,6 +19,7 @@ const Overview = ({
         <MemoryCard
           onDetails={onDetails}
           setSelectedMemory={setSelectedMemory}
+          memories={memories}
         />
       </ScrollView> 
         <FloatingButton
