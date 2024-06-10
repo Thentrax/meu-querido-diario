@@ -1,4 +1,12 @@
-import { collection, addDoc, getDocs, query, where } from "firebase/firestore"; 
+import {
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  where,
+  doc,
+  updateDoc
+} from "firebase/firestore"; 
 import { ref } from "firebase/storage";
 import { db, storage } from './config';
 
@@ -37,6 +45,18 @@ class Api {
       return memories;
     } catch (e) {
       console.error("Erro ao consultar memórias", e);
+    }
+  };
+
+  deactivateMemoryEnabled = async (memoryId) => {
+    try {
+      const memoryRef = doc(collection(db, "memories"), memoryId);
+      await updateDoc(memoryRef, {
+        enabled: false,
+      });
+      console.log(`Memória removida com sucesso.`);
+    } catch (e) {
+      console.error("Error updating memory enabled state:", e);
     }
   };
 };

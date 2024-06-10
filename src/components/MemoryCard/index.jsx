@@ -3,6 +3,7 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { styles } from './style';
 import { MainTheme } from '../../theme/MainTheme';
 import { Trash } from 'phosphor-react-native';
+import ApiInstance from '../../firebase/api';
 
 const MemoryCard = ({
   onDetails,
@@ -15,8 +16,8 @@ const MemoryCard = ({
     onDetails();
   };
 
-  const onDelete = (id) => {
-      console.log('deletando', id);
+  const onDelete = async (id) => {
+      await ApiInstance.deactivateMemoryEnabled(id);
   };
 
   return (
