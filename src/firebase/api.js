@@ -38,9 +38,7 @@ class Api {
     } catch (e) {
       console.error("Erro ao consultar memórias", e);
     }
-
   };
-
 };
 
 const ApiInstance = new Api();

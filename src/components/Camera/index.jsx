@@ -32,8 +32,9 @@ const CameraScreen = ({
     if (ref) {
       const data = await ref.current.takePictureAsync();
       setCaptured(data.uri)
-      setPicture(data)
-      await MediaLibrary.createAssetAsync(data.uri)
+      const asset = await MediaLibrary.createAssetAsync(data.uri)
+      console.log("ASSET", asset);
+      setPicture(asset.uri)
       setIsOpen(false)
     }
   }

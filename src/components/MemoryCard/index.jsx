@@ -23,7 +23,7 @@ const MemoryCard = ({
     memories && memories.map((memory) => (
         <TouchableOpacity onPress={() => onOpenMemory(memory)} key={memory.id}>
           <View style={styles.container}>
-            <Image source={memory.data.image} />
+            <Image source={{ uri: memory.data.image }} style={styles.image} />
             <Text style={styles.text}>{memory.data.title}</Text>
             <View style={styles.actions}>
               <TouchableOpacity onPress={() => onDelete(memory.id)}>
