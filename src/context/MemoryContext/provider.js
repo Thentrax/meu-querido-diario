@@ -23,7 +23,6 @@ export const MemoriesProvider = ({
   }, [memories])
 
   const fetchMemories = async () => {
-    console.log('FETCHMEMORIES')
     try {
       const newMemories = await ApiInstance.getMemories();
       setMemories(newMemories);

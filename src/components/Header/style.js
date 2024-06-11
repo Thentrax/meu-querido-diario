@@ -10,13 +10,13 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     borderColor: MainTheme.colors.primary,
     borderWidth: 1,
-    paddingTop: '16px',
   },
   titleView: {
     width: '100%',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
   },
   title: {
     color: MainTheme.colors.white,

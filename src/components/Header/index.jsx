@@ -9,8 +9,8 @@ const Header = () => {
   return (
     <View style={styles.container}>
       <View style={styles.titleView}>
-        <Text style={styles.title}>Meu querido Diário</Text>
         <Notebook size={32} color={MainTheme.colors.tertiary} weight='fill'/>
+        <Text style={styles.title}>Meu querido Diário</Text>
       </View>
     </View> 
 );

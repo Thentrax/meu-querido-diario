@@ -79,12 +79,12 @@ const MemoryForm = ({
           multiline
         />
         <Text style={styles.text2}>Foto</Text>
-        <Button title="Tirar Foto" onPress={handleImageSelect} color={MainTheme.colors.tertiary}/>
+        <Button title="Tirar Foto" onPress={handleImageSelect} color={MainTheme.colors.secondary}/>
         {image && <Image source={{ uri: image }} style={styles.image} />}
         <Text style={styles.text2}>Localização</Text>
-        <Button title="Selecionar Localização" onPress={handleLocationSelect} color={MainTheme.colors.tertiary}/>
+        <Button title="Selecionar Localização" onPress={handleLocationSelect} color={MainTheme.colors.secondary}/>
         {location && <Text>{JSON.stringify(location)}</Text>}
-        <Button title="Enviar" onPress={handleSubmit} color={MainTheme.colors.secondary}/>
+        <Button title="Enviar" onPress={handleSubmit} color={MainTheme.colors.tertiary}/>
         </View>
       </ScrollView>
       { openCamera && (<CameraScreen setIsOpen={setOpenCamera} setPicture={setImage}/>) }     
