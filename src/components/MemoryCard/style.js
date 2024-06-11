@@ -4,7 +4,6 @@ import { MainTheme } from '../../theme/MainTheme';
 export const styles = StyleSheet.create({
   container: {
     position: 'relative',
-    padding: 8,
     backgroundColor: MainTheme.colors.background,
     borderColor: MainTheme.colors.primary,
     borderBottomColor: MainTheme.colors.primary,
@@ -13,7 +12,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    gap: 8,
+    gap: 8
   },
   text: {
     color: MainTheme.colors.textPrimay,
@@ -27,5 +26,11 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     gap: 8,
   },
+  image: {
+    width: 64,
+    height: 64,
+    objectFit: 'contain',
+    backgroundColor: MainTheme.colors.background,
+  }
 
 });

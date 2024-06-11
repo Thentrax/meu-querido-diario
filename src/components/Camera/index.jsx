@@ -30,10 +30,10 @@ const CameraScreen = ({
 
   async function take() {
     if (ref) {
-      const data = await ref.current.takePictureAsync();
+      const data = await ref.current.takePictureAsync({ base64: true, quality: 0.5 });
       setCaptured(data.uri)
-      const asset = await MediaLibrary.createAssetAsync(data.uri)
-      setPicture(asset.uri)
+      await MediaLibrary.createAssetAsync(data.uri)
+      setPicture(data)
       setIsOpen(false)
     }
   }

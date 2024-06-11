@@ -17,7 +17,7 @@ const MemoryTab = ({
     <View style={styles.container}>
       <ScrollView>
         <Text style={styles.text}>{memory.data.title}</Text>
-        <Image source={memory.data.image} style={styles.image} />
+        <Image source={{ uri: `data:image/png;base64,${memory.data.image.base64}` }} style={styles.image} />
         <Text style={styles.text2}>{memory.data.description}</Text>
       </ScrollView> 
     </View>

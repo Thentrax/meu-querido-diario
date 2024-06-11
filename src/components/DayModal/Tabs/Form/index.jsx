@@ -80,7 +80,7 @@ const MemoryForm = ({
         />
         <Text style={styles.text2}>Foto</Text>
         <Button title="Tirar Foto" onPress={handleImageSelect} color={MainTheme.colors.secondary}/>
-        {image && <Image source={{ uri: image }} style={styles.image} />}
+        {image && <Image source={{ uri: image.uri }} style={styles.image} />}
         <Text style={styles.text2}>Localização</Text>
         <Button title="Selecionar Localização" onPress={handleLocationSelect} color={MainTheme.colors.secondary}/>
         {location && <Text>{JSON.stringify(location)}</Text>}
