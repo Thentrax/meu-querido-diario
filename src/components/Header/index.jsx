@@ -10,14 +10,8 @@ const Header = () => {
     <View style={styles.container}>
       <View style={styles.titleView}>
         <Text style={styles.title}>Meu querido Diário</Text>
-        <Notebook size={32} color={MainTheme.colors.secondary} weight='fill'/>
+        <Notebook size={32} color={MainTheme.colors.tertiary} weight='fill'/>
       </View>
-      <View style={styles.callView}>
-        <Text style={styles.greetings}>Olá {userName}!</Text>
-        <Text style={styles.call}>Gostaria de compartilhar uma nova memórias?</Text>
-        <Text style={styles.text}>Selecione uma data para verificar suas memórias!</Text>
-      </View>
-
     </View> 
 );
 };

@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    gap: 16
   },
   calendar: {
     width: Dimensions.get('window').width * 0.9,
@@ -30,6 +31,30 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   },
+  greetings: {
+    width: '100%',
+    color: MainTheme.colors.black,
+    fontSize: 18,
+    fontWeight: 'bold',
+    paddingHorizontal: 16,
+  },
+  callView: {
+    width: '100%',
+  },
+  call: {
+    width: '100%',
+    color: MainTheme.colors.black,
+    fontSize: 16,
+    fontWeight: 'regular',
+    paddingHorizontal: 16,
+  },
+  text: {
+    width: '100%',
+    color: MainTheme.colors.black,
+    fontSize: 14,
+    fontWeight: 'regular',
+    paddingHorizontal: 16,
+  }
 });
 
 export const calendarTheme = {

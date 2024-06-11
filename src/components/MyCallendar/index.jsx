@@ -43,6 +43,13 @@ const MyCalendar = () => {
 
     return ( 
         <View style={styles.container}> 
+          <View style={styles.callView}>
+            <Text style={styles.greetings}>Olá!</Text>
+            <Text style={styles.call}>Gostaria de compartilhar uma nova memórias?</Text>
+            <Text style={styles.text}>Selecione uma data para verificar suas memórias!</Text>
+          </View>
+
+          <View>
           <View style={styles.calendarHeader}>
               <Text style={styles.calendarHeaderText}>Seu calendário de Memórias</Text>
           </View>
@@ -60,6 +67,7 @@ const MyCalendar = () => {
               }}
               theme={calendarTheme} 
             />
+          </View>
             <DayModal
               isVisible={modalVisible}
               setIsVisible={setModalVisible}
