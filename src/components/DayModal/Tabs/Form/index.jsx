@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'; 
+import React, { useContext, useEffect, useState } from 'react'; 
 import { TextInput, View, Button, Text, Image, ScrollView } from 'react-native'; 
 import { styles } from './style';
 import { MainTheme } from '../../../../theme/MainTheme';
 import CameraScreen from '../../../Camera';
 import MapScreen from '../../../Map';
 import ApiInstance from '../../../../firebase/api';
+import MemoriesContext from '../../../../context/MemoryContext/context';
 
 const MemoryForm = ({
   currentTab,
@@ -17,6 +18,7 @@ const MemoryForm = ({
   const [location, setLocation] = useState('');
   const [openCamera, setOpenCamera] = useState(false);
   const [openMap, setOpenMap] = useState(false);
+  const { fetchMemories } = useContext(MemoriesContext);
 
   const handleImageSelect = () => {
     setOpenCamera(true);
@@ -27,6 +29,11 @@ const MemoryForm = ({
   };
 
   const handleSubmit = async () => {
+    await postMemory();
+    onOverview();
+  };
+
+  const postMemory = async () => {
     const newMemory = {
       title,
       description,
@@ -35,8 +42,8 @@ const MemoryForm = ({
       date,
     }
     await ApiInstance.postMemory(newMemory);
-    onOverview();
-  };
+    await fetchMemories();
+  }
 
   const clearForm = () => {
     setTitle('');

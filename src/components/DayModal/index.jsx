@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'; 
-import { View, Button, Modal, Text, TouchableOpacity } from 'react-native'; 
+import { View, Modal, Text, TouchableOpacity } from 'react-native'; 
 import { styles } from './style';
 import { ArrowArcLeft, X } from 'phosphor-react-native';
 import Overview from './Tabs/Overview';
@@ -10,7 +10,6 @@ const DayModal = ({
   isVisible,
   setIsVisible,
   selectedDate,
-  memories,
 }) => {
 
   const [currentTab, setCurrentTab] = React.useState(0);
@@ -18,7 +17,10 @@ const DayModal = ({
 
   const formatDate = (date) => {
     const dateObj = new Date(date);
-    return dateObj.toLocaleDateString('pt-BR');
+    const dateString = dateObj.toISOString().split('T')[0]
+    const slpittedDate = dateString.split('-')
+    const formatedString = `${slpittedDate[2]}/${slpittedDate[1]}/${slpittedDate[0]}`
+    return formatedString;
   };
 
   let date = formatDate(selectedDate);
@@ -63,7 +65,7 @@ const DayModal = ({
                 <X size={18} color="#fff"/>
             </TouchableOpacity>
           </View>
-          {currentTab === 0 && <Overview onCreate={onCreate} onDetails={onDetails} setSelectedMemory={setSelectedMemory} memories={memories}/>}
+          {currentTab === 0 && <Overview onCreate={onCreate} onDetails={onDetails} setSelectedMemory={setSelectedMemory}/>}
           {currentTab === 1 && <MemoryForm currentTab={currentTab} onOverview={onOverview} date={date} />}
           {currentTab === 2 && <MemoryTab selectedMemory={selectedMemory}/>}
         </View>

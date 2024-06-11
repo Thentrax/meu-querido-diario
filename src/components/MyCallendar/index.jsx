@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'; 
+import React, { useState, useEffect, useContext } from 'react'; 
 import { View, Text } from 'react-native'; 
 import { Calendar, LocaleConfig, mark } from 'react-native-calendars'; 
 import { styles, calendarTheme } from './style';
 import DayModal from '../DayModal';
+import MemoriesContext from '../../context/MemoryContext/context';
 
 LocaleConfig.locales['br'] = {
   monthNames: [
@@ -26,12 +27,9 @@ LocaleConfig.locales['br'] = {
 };
 LocaleConfig.defaultLocale = 'br';
 
-const MyCalendar = ({memories, datesWithMemories}) => { 
-  const today = new Date();
-  const todayString = today.toISOString().split('T')[0];
-  const [selectedDate, setSelectedDate] = useState(todayString);
+const MyCalendar = () => { 
   const [modalVisible, setModalVisible] = useState(false);
-  const [selectedDateMemories, setSelectedDateMemories] = useState();
+  const { getMemoriesWithDate, memories, selectedDate, setSelectedDate } = useContext(MemoriesContext);
   
   useEffect(() => {
     if (selectedDate && memories){
@@ -41,17 +39,6 @@ const MyCalendar = ({memories, datesWithMemories}) => {
 
   const handleOpenModal = () => {
     setModalVisible(true);
-  };
-
-  const formatDate = (memoryDate) => {
-    const day = memoryDate.split('/');
-    const formatedDate = `${day[2]}-${day[1]}-${day[0]}`;
-    return formatedDate;
-  }
-
-  const getMemoriesWithDate = () => {
-    const filteredMemories = memories.filter((memory) => formatDate(memory.data.date) === selectedDate)
-    setSelectedDateMemories(filteredMemories);
   };
 
     return ( 
@@ -77,7 +64,6 @@ const MyCalendar = ({memories, datesWithMemories}) => {
               isVisible={modalVisible}
               setIsVisible={setModalVisible}
               selectedDate={selectedDate}
-              memories={selectedDateMemories}
             />
         </View> 
     ); 

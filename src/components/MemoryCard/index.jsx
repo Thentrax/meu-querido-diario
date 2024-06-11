@@ -1,15 +1,16 @@
-import React, { useEffect } from 'react'; 
+import React, { useContext, useEffect } from 'react'; 
 import { View, Text, Image, TouchableOpacity } from 'react-native'; 
 import { styles } from './style';
 import { MainTheme } from '../../theme/MainTheme';
 import { Trash } from 'phosphor-react-native';
 import ApiInstance from '../../firebase/api';
+import MemoriesContext from '../../context/MemoryContext/context';
 
 const MemoryCard = ({
   onDetails,
   setSelectedMemory,
-  memories,
 }) => {
+  const { selectedDateMemories, fetchMemories } = useContext(MemoriesContext);
 
   const onOpenMemory = (memory) => {
     setSelectedMemory(memory);
@@ -18,10 +19,11 @@ const MemoryCard = ({
 
   const onDelete = async (id) => {
       await ApiInstance.deactivateMemoryEnabled(id);
+      fetchMemories();
   };
 
   return (
-    memories && memories.map((memory) => (
+    selectedDateMemories && selectedDateMemories.map((memory) => (
         <TouchableOpacity onPress={() => onOpenMemory(memory)} key={memory.id}>
           <View style={styles.container}>
             <Image source={{ uri: memory.data.image }} style={styles.image} />

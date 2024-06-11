@@ -54,7 +54,6 @@ class Api {
       await updateDoc(memoryRef, {
         enabled: false,
       });
-      console.log(`Memória removida com sucesso.`);
     } catch (e) {
       console.error("Error updating memory enabled state:", e);
     }
