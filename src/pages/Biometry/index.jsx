@@ -112,6 +112,7 @@ const Biometry = ({
         <Text style={styles.text2}>Senha</Text>
         <TextInput
           style={styles.input}
+          secureTextEntry={true}
           placeholder="Senha"
           value={password}
           onChangeText={setPassword}
@@ -132,6 +133,7 @@ const Biometry = ({
         <Text style={styles.text2}>Senha</Text>
         <TextInput
           style={styles.input}
+          secureTextEntry={true}
           placeholder="Senha"
           value={password}
           onChangeText={setPassword}
@@ -140,6 +142,7 @@ const Biometry = ({
         <TextInput
           style={styles.input}
           placeholder="Confirmar Senha"
+          secureTextEntry={true}
           value={confirmPassword}
           onChangeText={setConfirmPassword}
           />
