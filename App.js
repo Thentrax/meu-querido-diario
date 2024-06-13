@@ -1,21 +1,47 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, SafeAreaView } from 'react-native';
 import { MainTheme } from './src/theme/MainTheme';
-import Router from './src/pages/router';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import MainPage from './src/pages/MainPage';
+import Biometry from './src/pages/Biometry';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <Router />
-      <StatusBar style="auto" />
-    </SafeAreaView>
+    <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name='biometry' component={Biometry}
+            options={{
+              title: 'Autenticação',
+              headerStyle: {
+                backgroundColor: MainTheme.colors.primary,
+                
+              },
+              headerTintColor: '#fff',
+              headerTitleStyle: {
+                fontWeight: 'bold',
+              },
+            }}
+          />
+          <Stack.Screen
+          name='calendar'
+          component={MainPage}
+          headerBackVisible={false}
+          options={{
+              title: 'Início',
+              headerStyle: {
+                backgroundColor: MainTheme.colors.primary,
+                
+              },
+              headerTintColor: '#fff',
+              headerTitleStyle: {
+                fontWeight: 'bold',
+              },
+            }}/>
+        </Stack.Navigator>
+        <StatusBar style="auto" />
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: MainTheme.colors.background,
-    fontFamily: MainTheme.fonts.primary,
-  },
-});

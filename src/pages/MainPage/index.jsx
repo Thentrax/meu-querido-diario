@@ -4,10 +4,9 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import MyCalendar from '../../components/MyCallendar';
 import { MemoriesProvider } from '../../context/MemoryContext/provider';
-import { SafeAreaView } from 'react-native-web';
 
 const MainPage = ({
-  setCurrentPage,
+  navigation,
 }) => {
 
   return ( 
