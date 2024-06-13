@@ -96,7 +96,7 @@ const Biometry = ({
         <View style={styles.form}>
         <Text style={styles.mainText}>Olá! Boas vindas.</Text>
         <Text style={styles.text}>Já possui uma conta ou deseja se registrar?</Text>
-        <Button color={MainTheme.colors.secondary} title="Entrar" onPress={() => {onEnter('login')}} />
+        <Button color={MainTheme.colors.secondary} title="Entrar" onPress={() => {changeMode('login')}} />
         <Button color={MainTheme.colors.secondary} title="Registrar" onPress={() => {changeMode('register')}} />
         </View>
       )}
